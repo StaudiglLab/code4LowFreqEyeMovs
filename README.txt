@@ -16,6 +16,7 @@ NOTE:
 2. The complete analysis pipeline requires the full dataset located in \datafiles, which will be uploaded upon publication.
 3. The results from the analyses are saved in \data4figs, which can be loaded now for figure generation.
 
+The install time of the toolboxes should only take a few seconds.
 ---------------
 Code to generate figures of the manuscript
 ---------------
