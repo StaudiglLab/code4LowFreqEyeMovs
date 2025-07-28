@@ -20,7 +20,7 @@ NOTE:
 Code to generate figures of the manuscript
 ---------------
 
-The following code loads the saved outputs from the corresponding analyses and plots the figures
+The following codes can load the saved outputs from the corresponding analyses and plot the figures
 
 ----------------------------------------- Figure 1 ---------------------------------------------
 -- Fig1A: Beh\Beh_Exp1.m
