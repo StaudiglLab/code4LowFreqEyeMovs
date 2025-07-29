@@ -21,7 +21,7 @@ The install time of the toolboxes should only take a few seconds.
 Code to generate figures of the manuscript
 ---------------
 
-The following codes can load the saved outputs from the corresponding analyses and plot the figures
+The following scripts contain code at the end that loads the saved outputs from the corresponding analyses and plots the figures.
 The loading time of the data and figures generation will take a few seconds.
 ----------------------------------------- Figure 1 ---------------------------------------------
 -- Fig1A: Beh\Beh_Exp1.m
