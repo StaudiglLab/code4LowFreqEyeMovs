@@ -148,7 +148,7 @@ allnext_sac_time = [];
 
 for s =  1:length(AlphaBeta_Sac_locked)
     % bc (if whole trl dmean, just select the tw_bc to be thw whole trl length)
-    bc_avg =  cellfun(@(x) nanmean(x(idx_bc)),AlphaBeta_Sac_locked(s).dat,'Un',0);
+    bc_avg =  cellfun(@(x) mean(x(idx_bc)),AlphaBeta_Sac_locked(s).dat,'Un',0);
     
     Datpos   = cellfun(@(x,y) x-y,AlphaBeta_Sac_locked(s).dat, bc_avg,'Un',0);
     Datpos = cat(1,Datpos{:});
