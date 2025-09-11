@@ -53,7 +53,7 @@ for s = 1:length(Mem)
 end
 
 %% Analysis
-
+rng(2025);
 for s = 1:34
     disp(s)
     savename = [TFRsavepath,sprintf('TFR_PVstim_allTrials_sub%d_%s.mat',s,'Exp4')];
@@ -195,6 +195,7 @@ cfg = [];
 end
 
 %% Statistics
+rng(2025);
 load([datapath,'layout.mat'])
 subset = 1:34;
 design      = zeros(2,length(subset)*2);
@@ -221,7 +222,7 @@ cfg.tail             = 0;
 cfg.clustertail      = 0;
 cfg.alpha            = 0.025;
 cfg.numrandomization = 1000;
-
+cfg.minnbchan    = 3;
 cfg.neighbours=neighbours;
 cfg.design           = design;
 
@@ -237,8 +238,8 @@ stat_ExpvsFix_EI = rmfield(stat_ExpvsFix_EI,'cfg');
 save([datafigspath,'Fig4D_left.mat'],'stat_mem')
 save([datafigspath,'Fig4E_left.mat'],'stat_ExpvsFix_EI')
 %% Extract posterior ab power for each condition
-toiVM = [1,3.6];
-toiEI = [0,4];
+toiVM = [1,3];% focus on the cluster time window
+toiEI = [1,4];
 foi = [10,20];
 coi = {'P*','O*'};
 

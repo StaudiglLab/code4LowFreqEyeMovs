@@ -1,6 +1,6 @@
 %% Time Frequency analyis for Exp 3
 
-codepath = '';
+codepath = 'F:\Dropbox\Postdoc\Academic\Projects\Scalp_PETER\Article\code4PETER\';
 addpath(genpath( [codepath,'\subfunctions\']))
 
 
@@ -51,6 +51,7 @@ for s = 1:length(Mem)
 
 end
 %% Analysis
+rng(2025);
 for s = 1:length(Mem)
     disp(s)
     savename = [TFRsavepath,sprintf('TFR_PVstim_allTrials_sub%d_%s.mat',s,'Exp3')];
@@ -116,6 +117,7 @@ cfg = [];
  
 end
 %% statistics 
+rng(2025);
 load([datapath,'layout.mat'])
 subset = 1:20;
 design      = zeros(2,length(subset)*2);
@@ -142,7 +144,7 @@ cfg.tail             = 0;
 cfg.clustertail      = 0;
 cfg.alpha            = 0.025;
 cfg.numrandomization = 1000;
-
+cfg.minnbchan    = 3;
 cfg.neighbours=neighbours;
 cfg.design           = design;
 
@@ -160,7 +162,7 @@ save([datafigspath,'Fig3E_left.mat'],'stat_expl')
 
 %% Figure
 % load data for plotting
-codepath = '';
+%codepath = '';
 
 datapath = [codepath,'\datafiles\'];
 datafigspath =  [codepath,'\data4figs\'];

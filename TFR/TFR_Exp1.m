@@ -53,7 +53,7 @@ for s = 1:length(Mem)
 end
 
 %% Analysis
-
+rng(2024);
 for s = 1:20
     disp(s)
     savename = [TFRsavepath,sprintf('TFR_PVstim_allTrials_sub%d_%s.mat',s,'Exp1')];
@@ -118,6 +118,7 @@ cfg = [];
  
 end
 %% statistics 
+rng(2025);
 load([datapath,'layout.mat'])
 subset = 1:20;
 design      = zeros(2,length(subset)*2);
@@ -140,22 +141,17 @@ cfg.uvar                = 1;
 cfg.parameter           = 'powspctrm';
 cfg.latency             = [0,4];
 cfg.frequency           = [2 40];
-cfg.tail             = -1;
-cfg.clustertail      = -1;
-cfg.alpha            = 0.05;
+cfg.tail             = 0;
+cfg.clustertail      = 0;
+cfg.alpha            = 0.025;
 cfg.numrandomization = 1000;
-
+cfg.minnbchan    = 3;
 cfg.neighbours=neighbours;
 cfg.design           = design;
 
 cfg.avgoverfreq = 'no';
 
 [stat_mem]  = ft_freqstatistics(cfg, tfr_C1_ave{subset},tfr_C2_ave{subset});
-
-
-cfg.tail             = 0;
-cfg.clustertail      = 0;
-cfg.alpha            = 0.025;
 [stat_sac]  = ft_freqstatistics(cfg, tfr_Msac_ave{subset},tfr_Lsac_ave{subset});
 
 %% save outputs
@@ -167,7 +163,7 @@ save([datafigspath,'Fig1E_left.mat'],'stat_sac')
 
 %% Figure
 % load data for plotting
-codepath = '';
+%codepath = '';
 
 datapath = [codepath,'\datafiles\'];
 datafigspath =  [codepath,'\data4figs\'];
