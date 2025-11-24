@@ -181,7 +181,7 @@ end
 %%
 save([datafigspath,'Fig2C_right.mat'],'stat_CB')
 save([datafigspath,'Fig2D_right.mat'],'stat_Sac')
-save([datafigspath,'SuppleFig2_right21.mat'],'stat_EI','Gaze_MoreExplr','Gaze_LessExplr')
+save([datafigspath,'SuppleFig4_right21.mat'],'stat_EI','Gaze_MoreExplr','Gaze_LessExplr')
 %%
 %% Figure
 % load data for plotting

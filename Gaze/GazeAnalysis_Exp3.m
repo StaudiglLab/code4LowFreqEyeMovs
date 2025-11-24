@@ -127,7 +127,7 @@ end
 %% save output for plotting
 save([datafigspath,'Fig3B_right.mat'],'stat_CB')
 save([datafigspath,'Fig3D_bottom.mat'],'stat_EI')
-save([datafigspath,'SuppleFig2_right31.mat'],'stat_EI','Gaze_MoreExplr','Gaze_LessExplr')
+save([datafigspath,'SuppleFig4_right31.mat'],'stat_EI','Gaze_MoreExplr','Gaze_LessExplr')
 %% Figure
 % load data for plotting
 codepath = '';

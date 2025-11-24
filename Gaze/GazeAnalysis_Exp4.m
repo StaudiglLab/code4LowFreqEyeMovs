@@ -180,7 +180,7 @@ end
 save([datafigspath,'Fig4B_left.mat'],'stat_C21','stat_C32','stat_C31')
 save([datafigspath,'Fig4B_right.mat'],'stat_CB')
 
-save([datafigspath,'SuppleFig2_right41.mat'],'stat_EI','Gaze_MoreExplr','Gaze_LessExplr')
+save([datafigspath,'SuppleFig4_right41.mat'],'stat_EI','Gaze_MoreExplr','Gaze_LessExplr')
 
 %% Figure
 % load data for plotting

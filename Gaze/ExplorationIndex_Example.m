@@ -10,7 +10,7 @@ load( [datapath,'PVstim_Gaze_Exp1.mat'])
 sub = 17;trl_more = 37; trl_less = 2; % manually select after inspection, this could be set to rand number
 eg_MoreExplore = gaze2D{sub}{trl_more};
 eg_LessExplore = gaze2D{sub}{trl_less};
-save([datafigspath,'SuppleFig2_left1.mat'],'eg_MoreExplore','eg_LessExplore')
+save([datafigspath,'SuppleFig4_left1.mat'],'eg_MoreExplore','eg_LessExplore')
 
 % random selection
 % select_sub = randsample(1:20,1);
@@ -29,25 +29,25 @@ save([datafigspath,'SuppleFig2_left1.mat'],'eg_MoreExplore','eg_LessExplore')
 % end
 %% Exp 2
 load( [datapath,'PVstim_Gaze_Exp2_el.mat']) % load( [datapath,'PVstim_Gaze_Exp2_tb.mat'])
-% example trial for SuppleFig2
+% example trial for SuppleFig4
 sub = 2;trl_more = 116; trl_less = 119; % manually select after inspection, this could be set to rand number
 eg_MoreExplore = gaze2D{sub}{trl_more};
 eg_LessExplore = gaze2D{sub}{trl_less};
-save([datafigspath,'SuppleFig2_left2.mat'],'eg_MoreExplore','eg_LessExplore')
+save([datafigspath,'SuppleFig4_left2.mat'],'eg_MoreExplore','eg_LessExplore')
 %% Exp 3
 load( [datapath,'PVstim_Gaze_Exp3.mat'])
-% example trial for SuppleFig2
+% example trial for SuppleFig4
 sub = 16;trl_more = 56; trl_less = 17; % manually select after inspection, this could be set to rand number
 eg_MoreExplore = gaze2D{sub}{trl_more};
 eg_LessExplore = gaze2D{sub}{trl_less};
-save([datafigspath,'SuppleFig2_left3.mat'],'eg_MoreExplore','eg_LessExplore')
+save([datafigspath,'SuppleFig4_left3.mat'],'eg_MoreExplore','eg_LessExplore')
 %% Exp 4
 load( [datapath,'PVstim_Gaze_Exp4.mat'])
-% example trial for SuppleFig2
+% example trial for SuppleFig4
 sub = 18;trl_more = 62; trl_less = 184; 
 eg_MoreExplore = gaze2D{sub}{trl_more};
 eg_LessExplore = gaze2D{sub}{trl_less};
-save([datafigspath,'SuppleFig2_left4.mat'],'eg_MoreExplore','eg_LessExplore')
+save([datafigspath,'SuppleFig4_left4.mat'],'eg_MoreExplore','eg_LessExplore')
 
 %% Figure
 % plot
@@ -60,8 +60,8 @@ viewdva_y =21;
 sizefig1 = [0,0.2,0.7,0.45];
 fontaxis = 24;line_width = 2;
 
-fig_savename1 = 'SuppleFig2_left1';
-load([datafigspath,'SuppleFig2_left1.mat'])
+fig_savename1 = 'SuppleFig4_left1';
+load([datafigspath,'SuppleFig4_left1.mat'])
 for Exp1=1
 f=figure('Name',int2str(11),'units','normalized','outerposition',sizefig1);clf;
 subplot(1,2,1);
@@ -99,8 +99,8 @@ set(findobj(gcf,'type','axes'),'FontName','Arial','FontSize',fontaxis,'FontWeigh
     
 end 
 %
-fig_savename1 = 'SuppleFig2_left2';
-load([datafigspath,'SuppleFig2_left2.mat'])
+fig_savename1 = 'SuppleFig4_left2';
+load([datafigspath,'SuppleFig4_left2.mat'])
 for Exp2=1
 f=figure('Name',int2str(11),'units','normalized','outerposition',sizefig1);clf;
 subplot(1,2,1);
@@ -138,8 +138,8 @@ set(findobj(gcf,'type','axes'),'FontName','Arial','FontSize',fontaxis,'FontWeigh
     
 end 
 %
-fig_savename1 = 'SuppleFig2_left3';
-load([datafigspath,'SuppleFig2_left3.mat'])
+fig_savename1 = 'SuppleFig4_left3';
+load([datafigspath,'SuppleFig4_left3.mat'])
 for Exp3=1
 f=figure('Name',int2str(11),'units','normalized','outerposition',sizefig1);clf;
 subplot(1,2,1);
@@ -177,8 +177,8 @@ set(findobj(gcf,'type','axes'),'FontName','Arial','FontSize',fontaxis,'FontWeigh
     
 end 
 %
-fig_savename1 = 'SuppleFig2_left4';
-load([datafigspath,'SuppleFig2_left4.mat'])
+fig_savename1 = 'SuppleFig4_left4';
+load([datafigspath,'SuppleFig4_left4.mat'])
 for Exp4=1
 f=figure('Name',int2str(11),'units','normalized','outerposition',sizefig1);clf;
 subplot(1,2,1);
@@ -222,8 +222,8 @@ end
 sizefig1 = [0,0.2,1,0.45];
 fontaxis = 24;line_width = 2;
 
-fig_savename1 = 'SuppleFig2_right11';
-load([datafigspath,'SuppleFig2_right11.mat'])
+fig_savename1 = 'SuppleFig4_right11';
+load([datafigspath,'SuppleFig4_right11.mat'])
 for MvLExplr=1
 
 f=figure('Name',int2str(11),'units','normalized','outerposition',sizefig1);clf;
@@ -284,8 +284,8 @@ set(findobj(gcf,'type','axes'),'FontName','Arial','FontSize',fontaxis,'FontWeigh
 end 
 
 % Exp 2
-fig_savename1 = 'SuppleFig2_right21';
-load([datafigspath,'SuppleFig2_right21.mat'])
+fig_savename1 = 'SuppleFig4_right21';
+load([datafigspath,'SuppleFig4_right21.mat'])
 for MvLExplr=1
 
 f=figure('Name',int2str(11),'units','normalized','outerposition',sizefig1);clf;
@@ -339,8 +339,8 @@ end
 
 
 % Exp 3
-fig_savename1 = 'SuppleFig2_right31';
-load([datafigspath,'SuppleFig2_right31.mat'])
+fig_savename1 = 'SuppleFig4_right31';
+load([datafigspath,'SuppleFig4_right31.mat'])
 for MvLExplr=1
 
 f=figure('Name',int2str(11),'units','normalized','outerposition',sizefig1);clf;
@@ -401,8 +401,8 @@ set(findobj(gcf,'type','axes'),'FontName','Arial','FontSize',fontaxis,'FontWeigh
 end 
 
 % Exp 4
-fig_savename1 = 'SuppleFig2_right41';
-load([datafigspath,'SuppleFig2_right41.mat'])
+fig_savename1 = 'SuppleFig4_right41';
+load([datafigspath,'SuppleFig4_right41.mat'])
 for MvLExplr=1
 
 f=figure('Name',int2str(11),'units','normalized','outerposition',sizefig1);clf;
@@ -466,8 +466,8 @@ end
 % saccade 
 sizefig = [0.1,0.1,0.2,0.6];
 cb = repmat([0.5,0.5,0.5],1,1);
-fig_savename = 'SuppleFig2_right12';
-load([datafigspath,'SuppleFig2_right12.mat'])
+fig_savename = 'SuppleFig4_right12';
+load([datafigspath,'SuppleFig4_right12.mat'])
 for fig=21
     %% 
     f=figure('Name',int2str(fig),'units','normalized','outerposition',sizefig);clf;
@@ -490,8 +490,8 @@ for fig=21
 end 
 
 % Exp 2
-fig_savename = 'SuppleFig2_right22';
-load([datafigspath,'SuppleFig2_right22.mat'])
+fig_savename = 'SuppleFig4_right22';
+load([datafigspath,'SuppleFig4_right22.mat'])
 for fig=21
     %% 
     f=figure('Name',int2str(fig),'units','normalized','outerposition',sizefig);clf;
@@ -514,8 +514,8 @@ for fig=21
 end 
 
 % Exp 3
-fig_savename = 'SuppleFig2_right32';
-load([datafigspath,'SuppleFig2_right32.mat'])
+fig_savename = 'SuppleFig4_right32';
+load([datafigspath,'SuppleFig4_right32.mat'])
 for fig=21
     %% 
     f=figure('Name',int2str(fig),'units','normalized','outerposition',sizefig);clf;
@@ -539,8 +539,8 @@ end
 
 
 % Exp 4
-fig_savename = 'SuppleFig2_right42';
-load([datafigspath,'SuppleFig2_right42.mat'])
+fig_savename = 'SuppleFig4_right42';
+load([datafigspath,'SuppleFig4_right42.mat'])
 for fig=21
     %% 
     f=figure('Name',int2str(fig),'units','normalized','outerposition',sizefig);clf;

@@ -224,7 +224,7 @@ end
 save([datafigspath,'Fig1B_left.mat'],'stat_CB')
 save([datafigspath,'Fig1D_left.mat'],'stat_Sac')
 save([datafigspath,'Fig1D_right.mat'],'MemMore_Sac','MemFewer_Sac','MemHigh_gaze_cl_balance','MemLow_gaze_cl_balance')
-save([datafigspath,'SuppleFig2_right11.mat'],'stat_EI','Gaze_MoreExplr','Gaze_LessExplr')
+save([datafigspath,'SuppleFig4_right11.mat'],'stat_EI','Gaze_MoreExplr','Gaze_LessExplr')
 %% Figure
 % load data for plotting
 codepath = '';
