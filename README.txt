@@ -70,8 +70,7 @@ The following codes can load the saved outputs from the corresponding analyses a
 -- SuppleFig2: Memorability\MemAnalysis_Exp1.m
 
 ----------------------------------- Supplementary Figure 3 -------------------------------------
--- SuppleFig3A: TFR\TFR_FOOOF_Exp1.m
--- SuppleFig3B: TFR\TFR_FOOOF_Exp1.m
+-- SuppleFig3: TFR\TFR_FOOOF_Exp1.m
 
 ----------------------------------- Supplementary Figure 4 -------------------------------------
 -- SuppleFig4: Gaze\ExplorationIndex_Example.m
