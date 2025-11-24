@@ -254,7 +254,7 @@ end
 
 %% save output for plotting
 save([datafigspath,'Fig5B.mat'],'Sac_amp_amp','Sac_offset_amp','peak_latency_amp','peak_ampitude_amp','stat_Gen','AlphaBeta_allsac','AlphaBeta_randsh','AlphaBeta_Amp1','AlphaBeta_Amp2','AlphaBeta_Amp3','chan_sub')
-save([datafigspath,'SuppleFig3B.mat'],'Sac_amp_Memory','peak_latency_mem','peak_ampitude_mem','AlphaBeta_Rem','AlphaBeta_For')
+save([datafigspath,'SuppleFig5B.mat'],'Sac_amp_Memory','peak_latency_mem','peak_ampitude_mem','AlphaBeta_Rem','AlphaBeta_For')
 %% Figure (Fig 5B)
 codepath = '';
 
@@ -285,7 +285,7 @@ t_plt_ind = dsearchn(t_range(toi_idx(1):toi_idx(2))',t_plt');
 
 ylim_plt = [-0.6,0.8];
 sizefig = [0.1,0.1,0.6,0.6];
-plot_save = 1;
+plot_save = 0;
 
 fig_savename = 'Fig5B_bottomleft';
 for fig=33
@@ -522,7 +522,7 @@ codepath = '';
 datafigspath =  [codepath,'\data4figs\'];
 figsavepath = [codepath,'\figures\'];
 % load data
-load( [datafigspath,'SuppleFig3B.mat'])
+load( [datafigspath,'SuppleFig5B.mat'])
 
 % time parameter
 t_range =  -0.5:1/1000:0.5;
@@ -537,7 +537,7 @@ plot_save = 1;
 %  cluster based on Rem vs Forg
 subset = 1:20;
 
-fig_savename = 'SuppleFig3B_right';
+fig_savename = 'SuppleFig5B_right';
 for fig=33
     
 f=figure('Name',int2str(fig),'units','normalized','outerposition',sizefig);clf;    
@@ -578,7 +578,7 @@ lt_lim  = [0,0.2];
 amp_lim = [-0.5,3];
 % scatter plots of both
 sizefig = [0.1,0.1,0.35,0.6];
-fig_savename = 'SuppleFig3B_left1';
+fig_savename = 'SuppleFig5B_left1';
 cb = cbrewer2('RdBu','div',2);
 for fig=21
     %% 
@@ -605,7 +605,7 @@ end
 sizefig = [0.1,0.1,0.15,0.6];
 cb = repmat([0.5,0.5,0.5],2,1);
 
-fig_savename = 'SuppleFig3B_left2';
+fig_savename = 'SuppleFig5B_left2';
 for fig=21
     %% 
     f=figure('Name',int2str(fig),'units','normalized','outerposition',sizefig);clf;
@@ -630,7 +630,7 @@ for fig=21
 end 
 
 
-fig_savename = 'SuppleFig3B_left3';% Peak latency
+fig_savename = 'SuppleFig5B_left3';% Peak latency
 for fig=21
     %% 
     f=figure('Name',int2str(fig),'units','normalized','outerposition',sizefig);clf;
