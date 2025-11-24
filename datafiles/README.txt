@@ -1,1 +1,1 @@
-Electrode layout files are now available for plotting. The full dataset from the study will be made available upon publication.
+The full dataset of the study will be made available upon publication.
