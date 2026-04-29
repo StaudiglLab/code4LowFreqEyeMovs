@@ -102,4 +102,36 @@ for fig=21
     saveas(gcf,[figsavepath,fig_savename,'.png'])
     end
 end 
+%%
+sacsavepath = [codepath,'\datafiles\Subjects_Exp4\saccades\'];
+% memory separated by viewing condition
+for s = 1:length(pv_viewcond)
+    load([sacsavepath,sprintf('TrialEyeInfo_%d_%s.mat',s,'Exp4')])
+    
+    cri1 = nanmedian(Eye_trlinfo(Eye_trlinfo(:,4)==1,8));
+    cri2 = nanmedian(Eye_trlinfo(Eye_trlinfo(:,4)==2,8));
+    cri3 = nanmedian(Eye_trlinfo(Eye_trlinfo(:,4)==3,8));
+    
+    Hit_VC_ML(s,1) = mean(Eye_trlinfo(Eye_trlinfo(:,4)==1 & Eye_trlinfo(:,8)<cri1 & Eye_trlinfo(:,9)==1,2));
+    Hit_VC_ML(s,2) = mean(Eye_trlinfo(Eye_trlinfo(:,4)==1 & Eye_trlinfo(:,8)>cri1 & Eye_trlinfo(:,9)==1,2));
+    
+    Hit_VC_ML(s,3) = mean(Eye_trlinfo(Eye_trlinfo(:,4)==2 & Eye_trlinfo(:,8)<cri2 & Eye_trlinfo(:,9)==1,2));
+    Hit_VC_ML(s,4) = mean(Eye_trlinfo(Eye_trlinfo(:,4)==2 & Eye_trlinfo(:,8)>cri2 & Eye_trlinfo(:,9)==1,2));
+    
+    Hit_VC_ML(s,5) = mean(Eye_trlinfo(Eye_trlinfo(:,4)==3 & Eye_trlinfo(:,8)<cri3 & Eye_trlinfo(:,9)==1,2));
+    Hit_VC_ML(s,6) = mean(Eye_trlinfo(Eye_trlinfo(:,4)==3 & Eye_trlinfo(:,8)>cri3 & Eye_trlinfo(:,9)==1,2));
+    
+  
+    falram_pr(s,1) = mean(pr_perf{s}(pr_cond{s}==3|pr_cond{s}==4)==0).*100;
+    
+    %% FA False alarm by Viewing condition
+
+    Dpr_VC_ML(s,1)= dprime(Hit_VC_ML(s,1),falram_pr(s,1)./100,324);
+    Dpr_VC_ML(s,2)= dprime(Hit_VC_ML(s,2),falram_pr(s,1)./100,324);
+    Dpr_VC_ML(s,3)= dprime(Hit_VC_ML(s,3),falram_pr(s,1)./100,324);
+    Dpr_VC_ML(s,4)= dprime(Hit_VC_ML(s,4),falram_pr(s,1)./100,324);
+    Dpr_VC_ML(s,5)= dprime(Hit_VC_ML(s,5),falram_pr(s,1)./100,324);
+    Dpr_VC_ML(s,6)= dprime(Hit_VC_ML(s,6),falram_pr(s,1)./100,324);
+
+end
 
