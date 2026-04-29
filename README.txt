@@ -11,6 +11,7 @@ daviolin (3.2.7)
 dabarplot (3.2.4)
 plot_areaerrorbar (1.3.1)
 fooof (1.1.1)
+bayesFactor(3.0)
 
 NOTE: 
 1. Some functions may not be supported in MATLAB versions earlier than R2020a.
@@ -52,10 +53,7 @@ The following codes can load the saved outputs from the corresponding analyses a
 -- Fig4D_top & Fig4E_top: Source\Source_Exp4.m
 
 ----------------------------------------- Figure 5 ---------------------------------------------
--- Fig5A: AlphaBeta\AlphaBeta_Saccade_Exp1.m
--- Fig5B: AlphaBeta\AlphaBeta_Saccade_Exp2.m
--- Fig5C: AlphaBeta\AlphaBeta_Saccade_Exp3.m
--- Fig5D: AlphaBeta\AlphaBeta_Saccade_Exp4.m
+-- Fig5: AlphaBeta\AlphaBeta_Saccade_Exp1.m
 
 ----------------------------------------- Figure 6 ---------------------------------------------
 -- Fig6A: AlphaBeta\AlphaBeta_AfterSaccade_Exp1.m
@@ -67,16 +65,53 @@ The following codes can load the saved outputs from the corresponding analyses a
 -- SuppleFig1: Saccades\Saccade_metrics.m
 
 ----------------------------------- Supplementary Figure 2 -------------------------------------
--- SuppleFig2: Memorability\MemAnalysis_Exp1.m
+-- SuppleFig2: Saccades\SaccadesAnalysis_Exp1.m
 
 ----------------------------------- Supplementary Figure 3 -------------------------------------
--- SuppleFig3: TFR\TFR_FOOOF_Exp1.m
+-- SuppleFig3: Memorability\MemAnalysis_Exp1.m
 
 ----------------------------------- Supplementary Figure 4 -------------------------------------
--- SuppleFig4: Gaze\ExplorationIndex_Example.m
+-- SuppleFig4: TFR\PSD_LMM_Exp1.m
 
 ----------------------------------- Supplementary Figure 5 -------------------------------------
--- SuppleFig5A: AlphaBeta\AlphaBeta_Saccade_Exp1.m
--- SuppleFig5B: AlphaBeta\AlphaBeta_Saccade_Exp2.m
--- SuppleFig5C: AlphaBeta\AlphaBeta_Saccade_Exp3.m
--- SuppleFig5D: AlphaBeta\AlphaBeta_Saccade_Exp4.m
+-- SuppleFig5: TFR\PSD_LMM_Exp1.m
+
+----------------------------------- Supplementary Figure 6 -------------------------------------
+-- SuppleFig6A: TFR\TFR_FOOOF_Exp1.m
+-- SuppleFig6B: TFR\TFR_FOOOF_Exp3.m
+-- SuppleFig6C: TFR\TFR_FOOOF_Exp4.m
+
+----------------------------------- Supplementary Figure 7 -------------------------------------
+-- SuppleFig7: TFR\TFR_Exp2_Sub.m
+
+----------------------------------- Supplementary Figure 8 -------------------------------------
+-- SuppleFig8: Beh\Beh_Exp3.m
+
+----------------------------------- Supplementary Figure 9 -------------------------------------
+-- SuppleFig9: Gaze\ExplorationIndex_Example.m
+
+----------------------------------- Supplementary Figure 10 -------------------------------------
+-- SuppleFig10A: TFR\TFR_Exp3.m
+-- SuppleFig10B: TFR\TFR_Exp4.m
+
+----------------------------------- Supplementary Figure 11 -------------------------------------
+-- SuppleFig11: TFR\TFR_Exp4_Forg.m
+
+----------------------------------- Supplementary Figure 12 -------------------------------------
+-- SuppleFig12: TFR\TFR_AcrossExp.m
+
+----------------------------------- Supplementary Figure 13 -------------------------------------
+-- SuppleFig13A: AlphaBeta\AlphaBeta_Saccade_Exp2.m
+-- SuppleFig13B: AlphaBeta\AlphaBeta_Saccade_Exp3.m
+-- SuppleFig13C: AlphaBeta\AlphaBeta_Saccade_Exp4.m
+
+----------------------------------- Supplementary Figure 14 -------------------------------------
+-- SuppleFig14A: AlphaBeta\AlphaBeta_Saccade_Exp2.m
+-- SuppleFig14B: AlphaBeta\AlphaBeta_Saccade_Exp3.m
+-- SuppleFig14C: AlphaBeta\AlphaBeta_Saccade_Exp4.m
+
+----------------------------------- Supplementary Figure 15 -------------------------------------
+-- SuppleFig15: AlphaBeta\AlphaBeta_AfterSaccade_Exp1.m
+
+----------------------------------- Supplementary Figure 16 -------------------------------------
+-- SuppleFig16: TFR\TFR_Exp1_Interval.m
