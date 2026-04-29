@@ -248,4 +248,221 @@ end
     
 end
 
+%% In vs Out door eye movs compare
+load( [datapath,'Stim_Memorability_Exp1.mat'])
 
+
+% general N of saccades
+edge_ang = -180:10:180;
+
+for s = 1:20
+    disp(s)
+    load([sacsavepath,sprintf('TrialEyeInfo_%d_%s.mat',s,'Exp1')])
+    
+    
+    Eye_trlinfo(:,9)=Img_id_enc{s}(Eye_trlinfo(:,1));
+    %% Sep by Indoor vs Outdoor
+    In_trl = Eye_trlinfo(Eye_trlinfo(:,8)==1 & Eye_trlinfo(:,9)<=162,:);
+    Out_trl = Eye_trlinfo(Eye_trlinfo(:,8)==1 & Eye_trlinfo(:,9)>162,:);
+
+    n_sac_IO_PV(s,1) =  nanmean(In_trl(:,5))./4;
+    n_sac_IO_PV(s,2) =  nanmean(Out_trl(:,5))./4;
+    
+    memIO(s,1) =  nanmean(In_trl(:,2));
+    memIO(s,2) =  nanmean(Out_trl(:,2));
+    % Memory x IndoorOutdoor
+    In_trl_R = In_trl(In_trl(:,2)==1,:);
+    In_trl_F = In_trl(In_trl(:,2)==0,:);
+    
+    Out_trl_R = Out_trl(Out_trl(:,2)==1,:);
+    Out_trl_F = Out_trl(Out_trl(:,2)==0,:);
+    
+    n_sac_RF_In(s,1) =  nanmean(In_trl_R(:,5))./4;
+    n_sac_RF_In(s,2) =  nanmean(In_trl_F(:,5))./4;
+    
+    n_sac_RF_Out(s,1) =  nanmean(Out_trl_R(:,5))./4;
+    n_sac_RF_Out(s,2) =  nanmean(Out_trl_F(:,5))./4;
+    
+    clearvars In_trl* Out_trl*
+   
+    
+    Rem_trl = Eye_trlinfo(Eye_trlinfo(:,8)==1 & Eye_trlinfo(:,2)==1,:);
+    For_trl = Eye_trlinfo(Eye_trlinfo(:,8)==1 & Eye_trlinfo(:,2)==0,:);
+    n_sac_RF_bs(s,1) =  nanmean(Rem_trl(:,4));
+    n_sac_RF_bs(s,2) =  nanmean(For_trl(:,4));
+    
+    n_sac_RF_PV(s,1) =  nanmean(Rem_trl(:,5))./4;
+    n_sac_RF_PV(s,2) =  nanmean(For_trl(:,5))./4;
+    
+    
+    
+
+    % load saccade info
+    load([sacsavepath,sprintf('Sac_PV_Info_Sub%d_%s.mat',s,'Exp1')]);
+    trl_info = Eye_trlinfo(Eye_trlinfo(:,8)==1,1);
+    Sac_trials.trialinfo = Sac_trials.trialinfo(ismember(Sac_trials.trialinfo(:,1),trl_info),:);
+    Sac_trials.trialinfo(:,8) = Img_id_enc{s}(Sac_trials.trialinfo(:,1));
+    
+    alltrl = Sac_trials.trialinfo(Sac_trials.trialinfo(:,6)>1.3*600,:);
+    
+    %% Indoor saccades 
+    Insac = alltrl(alltrl(:,8)<=162,:);
+    outsac = alltrl(alltrl(:,8)>162,:);
+    
+    % amplitude 
+    IOsac_amplitude_Exp1(s,1) = nanmean(Insac(:,5));
+    IOsac_amplitude_Exp1(s,2) = nanmean(outsac(:,5));
+    
+    % Duration 
+    IOsac_duration_Exp1(s,1) = nanmean(Insac(:,7)-Insac(:,6))/600*1000;
+    IOsac_duration_Exp1(s,2) = nanmean(outsac(:,7)-outsac(:,6))/600*1000;
+    
+    % Direction
+    bin_data = histcounts(Insac(:,4),edge_ang);
+    Inms_dir_Exp1(:,s) = bin_data./sum(bin_data); clearvars bin_data
+    bin_data = histcounts(outsac(:,4),edge_ang);
+    Outms_dir_Exp1(:,s) = bin_data./sum(bin_data); clearvars bin_data
+
+
+    
+
+end
+%%
+save([datafigspath,'SuppleFig2.mat'],'n_sac_IO_PV','memIO','IOsac_amplitude_Exp1','IOsac_duration_Exp1','Inms_dir_Exp1','Outms_dir_Exp1','n_sac_RF_*','-v7.3')
+%% descriptive analysis
+load([datafigspath,'SuppleFig2.mat'])
+data(1,:) = mean(n_sac_IO_PV);
+data(2,:) = std(n_sac_IO_PV);
+
+T = array2table(data, ...
+    'VariableNames', {'Indoor', 'Outdoor'}, ...
+    'RowNames', {'Mean', 'SD'});
+
+% Display the table
+disp(T);
+
+
+data(1,:) = mean(IOsac_amplitude_Exp1);
+data(2,:) = std(IOsac_amplitude_Exp1);
+
+T2 = array2table(data, ...
+    'VariableNames', {'Indoor', 'Outdoor'}, ...
+    'RowNames', {'Mean', 'SD'});
+
+% Display the table
+disp(T2);
+
+
+
+%% Figure
+plot_save = 1;
+% saccade freq
+sizefig = [0.1,0.1,0.2,0.6];
+cb = repmat([0.5,0.5,0.5],1,1);
+fig_savename = 'SuppleFig2A_2';
+for fig=21
+    %% 
+    f=figure('Name',int2str(fig),'units','normalized','outerposition',sizefig);clf;
+    h=daboxplot([n_sac_IO_PV(:,[1:2])],[repmat(1,size(n_sac_IO_PV,1),1)],...
+        'scatter' ,2,...
+        'color',cb,...
+        'boxalpha', 0.5,...
+        'jitter',1,...
+        'linkline',0,...
+        'withinlines',1)
+    
+    title('Saccade Frequency')
+    ylabel('N per Sec') 
+    xticklabels({'Indoor','Outdoor'})
+    set(findobj(gcf,'type','axes'),'FontName','Arial','FontSize',12,'FontWeight','Bold', 'LineWidth', 2);
+    
+   
+    if plot_save
+    saveas(gcf,[figsavepath,fig_savename,'.emf'])
+    saveas(gcf,[figsavepath,fig_savename,'.png'])
+    end
+end 
+
+
+fig_savename = 'SuppleFig2A_1';
+for fig=21
+    %% 
+    f=figure('Name',int2str(fig),'units','normalized','outerposition',sizefig);clf;
+    h=daboxplot([IOsac_amplitude_Exp1(:,[1:2])],[repmat(1,size(IOsac_amplitude_Exp1,1),1)],...
+        'scatter' ,2,...
+        'color',cb,...
+        'boxalpha', 0.5,...
+        'jitter',1,...
+        'linkline',0,...
+        'withinlines',1)
+    
+    title('Saccade Size')
+    ylabel('Saccade Size [dva]') 
+    xticklabels({'Indoor','Outdoor'})
+    set(findobj(gcf,'type','axes'),'FontName','Arial','FontSize',12,'FontWeight','Bold', 'LineWidth', 2);
+    
+   
+    if plot_save
+    saveas(gcf,[figsavepath,fig_savename,'.emf'])
+    saveas(gcf,[figsavepath,fig_savename,'.png'])
+    end
+end 
+
+% Rem for
+sizefig = [0.1,0.1,0.2,0.6];
+cb = cbrewer2('RdBu','div',2);
+fig_savename = 'SuppleFig2B_left';
+for fig=21
+    %% 
+    f=figure('Name',int2str(fig),'units','normalized','outerposition',sizefig);clf;
+    h=daboxplot([n_sac_RF_In(:,1),n_sac_RF_Out(:,1);n_sac_RF_In(:,2),n_sac_RF_Out(:,2)],...
+        [repmat(1,size(n_sac_RF_In,1),1);repmat(2,size(n_sac_RF_Out,1),1)],...
+        'scatter' ,2,...
+        'color',cb,...
+        'boxalpha', 0.5,...
+        'jitter',1,...
+        'linkline',1,...
+        'withinlines',0,...
+        'legend',{'Rem','Forg'},...
+        'xtlabels',{'Indoor','Outdoor'})
+    
+    title('Saccade Frequency')
+    ylabel('N per Sec') 
+    xticklabels({'Indoor','Outdoor'})
+    set(findobj(gcf,'type','axes'),'FontName','Arial','FontSize',12,'FontWeight','Bold', 'LineWidth', 2);
+    
+   
+    if plot_save
+    saveas(gcf,[figsavepath,fig_savename,'.emf'])
+    saveas(gcf,[figsavepath,fig_savename,'.png'])
+    end
+end 
+
+
+%% direction
+edge_ang = -180:10:180;
+
+sizefig3 = [0.2,0.2,0.8,0.9];
+fontaxis = 16;line_width = 2;
+fig_savename = 'SuppleFig2A_topright';
+for fig=53
+    f=figure('Name',int2str(fig),'units','normalized','outerposition',sizefig3);clf;
+   
+%%
+subplot(1,2,1);
+polarhistogram('BinEdges', deg2rad(edge_ang),'BinCounts',mean(Inms_dir_Exp1,2,'omitnan'),'FaceColor','black','FaceAlpha',.5)
+    title('Indoor')
+    rlim([0,0.1])
+
+    subplot(1,2,2);
+polarhistogram('BinEdges', deg2rad(edge_ang),'BinCounts',mean(Outms_dir_Exp1,2,'omitnan'),'FaceColor','black','FaceAlpha',.5)
+    title('Outdoor')
+    rlim([0,0.1])
+set(findobj(gcf,'type','axes'),'FontName','Arial','FontSize',24,'FontWeight','Bold', 'LineWidth', 2);
+    
+
+    if plot_save
+        saveas(gcf,[figsavepath,fig_savename,'.emf'])
+        saveas(gcf,[figsavepath,fig_savename,'.png'])
+    end
+end
