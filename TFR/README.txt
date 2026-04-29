@@ -8,5 +8,5 @@ PSD_LMM_Exp1.m: 	    Linear mixed effects models for Experiment 1
 TFR_Exp1_Interval.m: 	Average TFR power contrasts across experiments using a common time-frequency definition
 TFR_Exp2_Sub.m: 	    TFR contrasts in Experiment 2 with subject as units of observation
 TFR_Exp3_BF.m: 		    Bayesian analysis for TFR in Experiment 3
-TFR_Exp4_Forg.m: 	    TFR contrast between forgotten trialsin Experiment 4
+TFR_Exp4_Forg.m: 	    TFR contrast between forgotten trials in Experiment 4
 TFR_AcrossExp.m:      Average TFR power contrasts across experiments using a common time-frequency definition
