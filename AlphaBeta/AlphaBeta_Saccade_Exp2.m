@@ -253,15 +253,15 @@ for s = 1:size(AlphaBeta_Amp1,1)
 end
 
 %% save output for plotting
-save([datafigspath,'Fig5B.mat'],'Sac_amp_amp','Sac_offset_amp','peak_latency_amp','peak_ampitude_amp','stat_Gen','AlphaBeta_allsac','AlphaBeta_randsh','AlphaBeta_Amp1','AlphaBeta_Amp2','AlphaBeta_Amp3','chan_sub')
-save([datafigspath,'SuppleFig5B.mat'],'Sac_amp_Memory','peak_latency_mem','peak_ampitude_mem','AlphaBeta_Rem','AlphaBeta_For')
-%% Figure (Fig 5B)
+save([datafigspath,'SuppleFig13A.mat'],'Sac_amp_amp','Sac_offset_amp','peak_latency_amp','peak_ampitude_amp','stat_Gen','AlphaBeta_allsac','AlphaBeta_randsh','AlphaBeta_Amp1','AlphaBeta_Amp2','AlphaBeta_Amp3','chan_sub')
+save([datafigspath,'SuppleFig13B.mat'],'Sac_amp_Memory','peak_latency_mem','peak_ampitude_mem','AlphaBeta_Rem','AlphaBeta_For')
+%% 
 codepath = '';
 
 datafigspath =  [codepath,'\data4figs\'];
 figsavepath = [codepath,'\figures\'];
 % load data
-load( [datafigspath,'Fig5B.mat'])
+load( [datafigspath,'SuppleFig13A.mat'])
 
 % descriptive 
 
@@ -285,9 +285,9 @@ t_plt_ind = dsearchn(t_range(toi_idx(1):toi_idx(2))',t_plt');
 
 ylim_plt = [-0.6,0.8];
 sizefig = [0.1,0.1,0.6,0.6];
-plot_save = 0;
+plot_save = 1;
 
-fig_savename = 'Fig5B_bottomleft';
+fig_savename = 'SuppleFig13A_bottomleft';
 for fig=33
     
 f=figure('Name',int2str(fig),'units','normalized','outerposition',sizefig);clf;    
@@ -344,7 +344,7 @@ if plot_save
 end
 end
 
-fig_savename = 'Fig5B_bottomright';
+fig_savename = 'SuppleFig13A_bottomright';
 for fig=33     
 f=figure('Name',int2str(fig),'units','normalized','outerposition',sizefig);clf;    
 options.handle     = figure(f);
@@ -403,7 +403,7 @@ if plot_save
 end
 end
 
-fig_savename = 'Fig5B_topmiddle';
+fig_savename = 'SuppleFig13A_topmiddle';
 sizefig = [0.1,0.1,0.20,0.6];
 cb = cbrewer2('PuBuGn','div',3);
 % saccade at subject level
@@ -440,7 +440,7 @@ lt_lim  = [0,0.2];
 amp_lim = [-0.5,3];
 % scatter plots of both
 sizefig = [0.1,0.1,0.35,0.6];
-fig_savename = 'Fig5B_topright1';% scatter plot
+fig_savename = 'SuppleFig13A_topright1';% scatter plot
 cb = cbrewer2('Dark2',3);
 for fig=21
     %% 
@@ -468,7 +468,7 @@ end
 
 sizefig = [0.1,0.1,0.15,0.6];
 cb = repmat([0.5,0.5,0.5],3,1);
-fig_savename = 'Fig5B_topright2';% Peak amplitdue
+fig_savename = 'SuppleFig13A_topright2';% Peak amplitdue
 for fig=21
     %% 
     f=figure('Name',int2str(fig),'units','normalized','outerposition',sizefig);clf;
@@ -493,7 +493,7 @@ for fig=21
 end 
 
 
-fig_savename = 'Fig5B_topright3';% Peak latency
+fig_savename = 'SuppleFig13A_topright3';% Peak latency
 for fig=21
     %% 
     f=figure('Name',int2str(fig),'units','normalized','outerposition',sizefig);clf;
@@ -517,12 +517,12 @@ for fig=21
 end 
 
 %% Supplementary Figure
-codepath = '';
+%codepath = '';
 
 datafigspath =  [codepath,'\data4figs\'];
 figsavepath = [codepath,'\figures\'];
 % load data
-load( [datafigspath,'SuppleFig5B.mat'])
+load( [datafigspath,'SuppleFig14A.mat'])
 
 % time parameter
 t_range =  -0.5:1/1000:0.5;
@@ -537,7 +537,7 @@ plot_save = 1;
 %  cluster based on Rem vs Forg
 subset = 1:20;
 
-fig_savename = 'SuppleFig5B_right';
+fig_savename = 'SuppleFig14A_right';
 for fig=33
     
 f=figure('Name',int2str(fig),'units','normalized','outerposition',sizefig);clf;    
@@ -578,7 +578,7 @@ lt_lim  = [0,0.2];
 amp_lim = [-0.5,3];
 % scatter plots of both
 sizefig = [0.1,0.1,0.35,0.6];
-fig_savename = 'SuppleFig5B_left1';
+fig_savename = 'SuppleFig14A_left1';
 cb = cbrewer2('RdBu','div',2);
 for fig=21
     %% 
@@ -605,7 +605,7 @@ end
 sizefig = [0.1,0.1,0.15,0.6];
 cb = repmat([0.5,0.5,0.5],2,1);
 
-fig_savename = 'SuppleFig5B_left2';
+fig_savename = 'SuppleFig14A_left2';
 for fig=21
     %% 
     f=figure('Name',int2str(fig),'units','normalized','outerposition',sizefig);clf;
@@ -630,7 +630,7 @@ for fig=21
 end 
 
 
-fig_savename = 'SuppleFig5B_left3';% Peak latency
+fig_savename = 'SuppleFig14A_left3';% Peak latency
 for fig=21
     %% 
     f=figure('Name',int2str(fig),'units','normalized','outerposition',sizefig);clf;

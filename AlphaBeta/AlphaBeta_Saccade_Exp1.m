@@ -232,9 +232,12 @@ for s = 1:size(AlphaBeta_Amp1,1)
     peak_ampitude_amp(s,3)=a(find(b>t_min & b<t_max,1,'first'));
 end
 
+
+[bf10,p] = bf.ttest(peak_ampitude_mem(:,2)-peak_ampitude_mem(:,1));
+[bf10,p] = bf.ttest(peak_latency_mem(:,2)-peak_latency_mem(:,1));
 %% save output for plotting
 save([datafigspath,'Fig5A.mat'],'Sac_amp_amp','Sac_offset_amp','peak_latency_amp','peak_ampitude_amp','stat_Gen','AlphaBeta_allsac','AlphaBeta_randsh','AlphaBeta_Amp1','AlphaBeta_Amp2','AlphaBeta_Amp3')
-save([datafigspath,'SuppleFig5A.mat'],'Sac_amp_Memory','peak_latency_mem','peak_ampitude_mem','AlphaBeta_Rem','AlphaBeta_For')
+save([datafigspath,'Fig5B.mat'],'Sac_amp_Memory','peak_latency_mem','peak_ampitude_mem','AlphaBeta_Rem','AlphaBeta_For')
 
 
 %% Figure (Fig 5A)
@@ -487,13 +490,11 @@ for fig=21
     end
 end 
 
-%% Supplementary Figure
-codepath = '';
-
+%% Figure 5B
 datafigspath =  [codepath,'\data4figs\'];
 figsavepath = [codepath,'\figures\'];
 % load data
-load( [datafigspath,'SuppleFig5A.mat'])
+load( [datafigspath,'Fig5B.mat'])
 
 
 % time parameter
@@ -509,7 +510,7 @@ plot_save = 1;
 %  cluster based on Rem vs Forg
 subset = 1:20;
 
-fig_savename = 'SuppleFig5A_right';
+fig_savename = 'Fig5B_bottom';
 for fig=33
     
 f=figure('Name',int2str(fig),'units','normalized','outerposition',sizefig);clf;    
@@ -550,7 +551,7 @@ lt_lim  = [0.1,0.15];
 amp_lim = [0,1.2];
 % scatter plots of both
 sizefig = [0.1,0.1,0.35,0.6];
-fig_savename = 'SuppleFig5A_left1';
+fig_savename = 'Fig5B_topright1';
 cb = cbrewer2('RdBu','div',2);
 for fig=21
     %% 
@@ -578,7 +579,7 @@ end
 sizefig = [0.1,0.1,0.15,0.6];
 cb = repmat([0.5,0.5,0.5],2,1);
 
-fig_savename = 'SuppleFig5A_left2';
+fig_savename = 'Fig5B_topright2';
 for fig=21
     %% 
     f=figure('Name',int2str(fig),'units','normalized','outerposition',sizefig);clf;
@@ -603,7 +604,7 @@ for fig=21
 end 
 
 
-fig_savename = 'SuppleFig5A_left3';% Peak latency
+fig_savename = 'Fig5B_topright3';% Peak latency
 for fig=21
     %% 
     f=figure('Name',int2str(fig),'units','normalized','outerposition',sizefig);clf;
@@ -626,3 +627,31 @@ for fig=21
     end
 end   
 
+%  Sac_amp sep by memory
+sizefig = [0.1,0.1,0.2,0.6];
+cb = repmat([0.5,0.5,0.5],2,1);
+fig_savename = 'Fig5B_topleft';
+for fig=21
+    %% 
+    f=figure('Name',int2str(fig),'units','normalized','outerposition',sizefig);clf;
+    h=daboxplot([Sac_amp_Memory(:,[1:2])],[repmat(1,size(Sac_amp_Memory,1),1)],...
+        'scatter' ,2,...
+        'color',cb,...
+        'boxalpha', 0.5,...
+        'jitter',1,...
+        'linkline',0,...
+        'withinlines',1,...
+        'xtlabels',{'Rem','Forg'})
+    
+    ylabel('Amplitude [dva]')
+    xlabel('Memory')
+   
+    set(findobj(gcf,'type','axes'),'FontName','Arial','FontSize',12,'FontWeight','Bold', 'LineWidth', 2);
+    
+   
+    
+    if plot_save
+    saveas(gcf,[figsavepath,fig_savename,'.emf'])
+    saveas(gcf,[figsavepath,fig_savename,'.png'])
+    end
+end 
