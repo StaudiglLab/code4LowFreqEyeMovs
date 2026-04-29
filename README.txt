@@ -11,7 +11,7 @@ daviolin (3.2.7)
 dabarplot (3.2.4)
 plot_areaerrorbar (1.3.1)
 fooof (1.1.1)
-bayesFactor(3.0)
+bayesFactor (3.0)
 
 NOTE: 
 1. Some functions may not be supported in MATLAB versions earlier than R2020a.
