@@ -206,14 +206,14 @@ for runstat = 1
 end
 %% save output
 
-save([datafigspath,'Fig6B.mat'],'stat_With','AlphaBeta_WithPosSac','AlphaBeta_NoPosSac','allnext_sac_time')
+save([datafigspath,'Fig7B.mat'],'stat_With','AlphaBeta_WithPosSac','AlphaBeta_NoPosSac','allnext_sac_time')
 %% Figure
 codepath = '';
 
 datafigspath =  [codepath,'\data4figs\'];
 figsavepath = [codepath,'\figures\'];
 % load data
-load( [datafigspath,'Fig6B.mat'])
+load( [datafigspath,'Fig7B.mat'])
 
 
 % time parameter
@@ -230,7 +230,7 @@ ylim_plt = [-1.2,1.2];
 plot_save = 0;
 subset = 1:20;% all channels
 
-fig_savename = 'Fig6B_1';
+fig_savename = 'Fig7B_1';
 for fig=33
      
 f=figure('Name',int2str(fig),'units','normalized','outerposition',sizefig);clf;    
@@ -290,7 +290,7 @@ end
 
 sizefig1 = [0.2,0.2,0.6,0.28];
 fontaxis = 16;line_width = 2;
-fig_savename = 'Fig6B_2';
+fig_savename = 'Fig7B_2';
 for fig=30
 
     f=figure('Name',int2str(fig),'units','normalized','outerposition',sizefig1);clf;
