@@ -236,8 +236,8 @@ end
 [bf10,p] = bf.ttest(peak_ampitude_mem(:,2)-peak_ampitude_mem(:,1));
 [bf10,p] = bf.ttest(peak_latency_mem(:,2)-peak_latency_mem(:,1));
 %% save output for plotting
-save([datafigspath,'Fig5A.mat'],'Sac_amp_amp','Sac_offset_amp','peak_latency_amp','peak_ampitude_amp','stat_Gen','AlphaBeta_allsac','AlphaBeta_randsh','AlphaBeta_Amp1','AlphaBeta_Amp2','AlphaBeta_Amp3')
-save([datafigspath,'Fig5B.mat'],'Sac_amp_Memory','peak_latency_mem','peak_ampitude_mem','AlphaBeta_Rem','AlphaBeta_For')
+save([dataspath,'Fig6A.mat'],'Sac_amp_amp','Sac_offset_amp','peak_latency_amp','peak_ampitude_amp','stat_Gen','AlphaBeta_allsac','AlphaBeta_randsh','AlphaBeta_Amp1','AlphaBeta_Amp2','AlphaBeta_Amp3')
+save([datafigspath,'Fig6B.mat'],'Sac_amp_Memory','peak_latency_mem','peak_ampitude_mem','AlphaBeta_Rem','AlphaBeta_For')
 
 
 %% Figure (Fig 5A)
@@ -246,7 +246,7 @@ codepath = '';
 datafigspath =  [codepath,'\data4figs\'];
 figsavepath = [codepath,'\figures\'];
 % load data
-load( [datafigspath,'Fig5A.mat'])
+load( [datafigspath,'Fig6A.mat'])
 
 % descriptive 
 
@@ -271,7 +271,7 @@ ylim_plt = [-0.5,0.7];
 sizefig = [0.1,0.1,0.6,0.6];
 plot_save = 1;
 
-fig_savename = 'Fig5A_bottomleft';
+fig_savename = 'Fig6A_bottomleft';
 for fig=33
     
 f=figure('Name',int2str(fig),'units','normalized','outerposition',sizefig);clf;    
@@ -328,7 +328,7 @@ if plot_save
 end
 end
 
-fig_savename = 'Fig5A_bottomright';
+fig_savename = 'Fig6A_bottomright';
 for fig=33     
 f=figure('Name',int2str(fig),'units','normalized','outerposition',sizefig);clf;    
 options.handle     = figure(f);
@@ -382,7 +382,7 @@ if plot_save
 end
 end
 
-fig_savename = 'Fig5A_topmiddle';
+fig_savename = 'Fig6A_topmiddle';
 sizefig = [0.1,0.1,0.20,0.6];
 cb = cbrewer2('PuBuGn','div',3);
 for fig=21
@@ -414,7 +414,7 @@ lt_lim  = [0.1,0.15];
 amp_lim = [0,1.2];
 % scatter plots of both
 sizefig = [0.1,0.1,0.35,0.6];
-fig_savename = 'Fig5A_topright1';% scatter plot
+fig_savename = 'Fig6A_topright1';% scatter plot
 cb = cbrewer2('Dark2',3);
 for fig=21
     %% 
@@ -442,7 +442,7 @@ end
 
 sizefig = [0.1,0.1,0.15,0.6];
 cb = repmat([0.5,0.5,0.5],3,1);
-fig_savename = 'Fig5A_topright2';% Peak amplitdue
+fig_savename = 'Fig6A_topright2';% Peak amplitdue
 for fig=21
     %% 
     f=figure('Name',int2str(fig),'units','normalized','outerposition',sizefig);clf;
@@ -467,7 +467,7 @@ for fig=21
 end 
 
 
-fig_savename = 'Fig5A_topright3';% Peak latency
+fig_savename = 'Fig6A_topright3';% Peak latency
 for fig=21
     %% 
     f=figure('Name',int2str(fig),'units','normalized','outerposition',sizefig);clf;
@@ -494,7 +494,7 @@ end
 datafigspath =  [codepath,'\data4figs\'];
 figsavepath = [codepath,'\figures\'];
 % load data
-load( [datafigspath,'Fig5B.mat'])
+load( [datafigspath,'Fig6B.mat'])
 
 
 % time parameter
@@ -510,7 +510,7 @@ plot_save = 1;
 %  cluster based on Rem vs Forg
 subset = 1:20;
 
-fig_savename = 'Fig5B_bottom';
+fig_savename = 'Fig6B_bottom';
 for fig=33
     
 f=figure('Name',int2str(fig),'units','normalized','outerposition',sizefig);clf;    
@@ -551,7 +551,7 @@ lt_lim  = [0.1,0.15];
 amp_lim = [0,1.2];
 % scatter plots of both
 sizefig = [0.1,0.1,0.35,0.6];
-fig_savename = 'Fig5B_topright1';
+fig_savename = 'Fig6B_topright1';
 cb = cbrewer2('RdBu','div',2);
 for fig=21
     %% 
@@ -579,7 +579,7 @@ end
 sizefig = [0.1,0.1,0.15,0.6];
 cb = repmat([0.5,0.5,0.5],2,1);
 
-fig_savename = 'Fig5B_topright2';
+fig_savename = 'Fig6B_topright2';
 for fig=21
     %% 
     f=figure('Name',int2str(fig),'units','normalized','outerposition',sizefig);clf;
@@ -604,7 +604,7 @@ for fig=21
 end 
 
 
-fig_savename = 'Fig5B_topright3';% Peak latency
+fig_savename = 'Fig6B_topright3';% Peak latency
 for fig=21
     %% 
     f=figure('Name',int2str(fig),'units','normalized','outerposition',sizefig);clf;
@@ -630,7 +630,7 @@ end
 %  Sac_amp sep by memory
 sizefig = [0.1,0.1,0.2,0.6];
 cb = repmat([0.5,0.5,0.5],2,1);
-fig_savename = 'Fig5B_topleft';
+fig_savename = 'Fig6B_topleft';
 for fig=21
     %% 
     f=figure('Name',int2str(fig),'units','normalized','outerposition',sizefig);clf;
