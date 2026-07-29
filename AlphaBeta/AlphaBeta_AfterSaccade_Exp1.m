@@ -185,14 +185,14 @@ for runstat = 1
 end
 %% save output
 
-save([datafigspath,'Fig6A.mat'],'stat_With','AlphaBeta_WithPosSac','AlphaBeta_NoPosSac','allnext_sac_time')
+save([datafigspath,'Fig7A.mat'],'stat_With','AlphaBeta_WithPosSac','AlphaBeta_NoPosSac','allnext_sac_time')
 %% Figure
 codepath = '';
 
 datafigspath =  [codepath,'\data4figs\'];
 figsavepath = [codepath,'\figures\'];
 % load data
-load( [datafigspath,'Fig6A.mat'])
+load( [datafigspath,'Fig7A.mat'])
 
 
 % time parameter
@@ -208,7 +208,7 @@ ylim_plt = [-0.5,0.5];
 plot_save = 1;
 subset = 1:20;% all subjects
 
-fig_savename = 'Fig6A_1';
+fig_savename = 'Fig7A_1';
 for fig=33
      
 f=figure('Name',int2str(fig),'units','normalized','outerposition',sizefig);clf;    
@@ -268,7 +268,7 @@ end
 
 sizefig1 = [0.2,0.2,0.6,0.28];
 fontaxis = 16;line_width = 2;
-fig_savename = 'Fig6A_2';
+fig_savename = 'Fig7A_2';
 for fig=30
 
     f=figure('Name',int2str(fig),'units','normalized','outerposition',sizefig1);clf;
@@ -288,7 +288,7 @@ end
 
 %% control analysis (SuppleFig15)
 load([datapath,'AlphaBeta_hilbert_AfterSac_Exp1.mat']);
-load([datafigspath,'Fig6A.mat'])
+load([datafigspath,'Fig7A.mat'])
 
 %%
 
