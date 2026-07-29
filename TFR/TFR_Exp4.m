@@ -235,8 +235,8 @@ cfg.avgoverfreq = 'no';
 
 stat_mem = rmfield(stat_mem,'cfg');% save space
 stat_ExpvsFix_EI = rmfield(stat_ExpvsFix_EI,'cfg');
-save([datafigspath,'Fig4D_left.mat'],'stat_mem')
-save([datafigspath,'Fig4E_left.mat'],'stat_ExpvsFix_EI')
+save([datafigspath,'Fig5A_left.mat'],'stat_mem')
+save([datafigspath,'Fig5B_left.mat'],'stat_ExpvsFix_EI')
 %% Extract posterior ab power for each condition
 toiVM = [1,3];% focus on the cluster time window
 toiEI = [1,4];
@@ -289,8 +289,8 @@ for s=1:length(tfr_V1C1_ave)
     avg_pow_VC_EI(s,5) = mean(selec_dat.powspctrm(:));clearvars selec_dat
 end
 
-save([datafigspath,'Fig4D_right.mat'],'avg_pow_VC_RF')
-save([datafigspath,'Fig4E_right.mat'],'avg_pow_VC_EI')
+save([datafigspath,'Fig5A_right.mat'],'avg_pow_VC_RF')
+save([datafigspath,'Fig5B_right.mat'],'avg_pow_VC_EI')
 
 %% Figures
 codepath = '';
@@ -300,8 +300,8 @@ datafigspath =  [codepath,'\data4figs\'];
 figsavepath = [codepath,'\figures\'];
 load([datapath,'layout.mat']) % load layout
 % load data
-load( [datafigspath,'Fig4D_left.mat'])
-load( [datafigspath,'Fig4E_left.mat'])
+load( [datafigspath,'Fig5A_left.mat'])
+load( [datafigspath,'Fig5B_left.mat'])
 
 plot_save = 1; % to save or not figure
 
@@ -311,8 +311,8 @@ sizefig2 = [0.2,0.2,0.35,0.4];
 fontaxis = 24;line_width = 2;
 
 
-fig_savename1 = 'Fig4D_left1';
-fig_savename2 = 'Fig4D_left2';
+fig_savename1 = 'Fig5A_left1';
+fig_savename2 = 'Fig5A_left2';
 
 for remforg=1
     sig_channel = sum(sum(stat_mem.mask,3),2)>0;
@@ -386,8 +386,8 @@ end
 
 
 
-fig_savename1 = 'Fig4E_left1';
-fig_savename2 = 'Fig4E_left2';
+fig_savename1 = 'Fig5B_left1';
+fig_savename2 = 'Fig5B_left2';
 
 for EI=1
     sig_channel = sum(sum(stat_ExpvsFix_EI.mask,3),2)>0;
@@ -462,12 +462,12 @@ end
 
 
 % load data
-load( [datafigspath,'Fig4D_right.mat'])
-load( [datafigspath,'Fig4E_right.mat'])
+load( [datafigspath,'Fig5A_right.mat'])
+load( [datafigspath,'Fig5B_right.mat'])
 
 sizefig = [0.2,0.2,0.25,0.6];fontaxis = 24;line_width = 2;
 cb = cbrewer2('RdBu','div',2);
-fig_savename = 'Fig4D_right';
+fig_savename = 'Fig5A_right';
 for fig=231
     %% violin plot
     f=figure('Name',int2str(fig),'units','normalized','outerposition',sizefig);clf;
@@ -498,7 +498,7 @@ end
 
 cb = cbrewer2('BrBG','div',2);
 
-fig_savename = 'Fig4E_right';
+fig_savename = 'Fig5B_right';
 for fig=231
     %% violin plot
     f=figure('Name',int2str(fig),'units','normalized','outerposition',sizefig);clf;
