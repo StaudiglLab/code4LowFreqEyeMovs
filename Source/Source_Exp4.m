@@ -266,8 +266,8 @@ stat_Explr   = ft_sourcestatistics(cfg, s_DiffInt_Exploration_EI{subset}, s_Diff
 %% save output
 stat_RF = rmfield(stat_RF,'cfg');% remove cfg to save space
 stat_Explr = rmfield(stat_Explr,'cfg');
-save([datafigspath,'Fig4D_top.mat'],'stat_RF')
-save([datafigspath,'Fig4E_top.mat'],'stat_Explr')
+save([datafigspath,'Fig5A_top.mat'],'stat_RF')
+save([datafigspath,'Fig5B_top.mat'],'stat_Explr')
 %% Figure
 codepath = '';
 
@@ -276,8 +276,8 @@ datafigspath =  [codepath,'\data4figs\'];
 figsavepath = [codepath,'\figures\'];
 
 % load behavioral data, gaze data
-load( [datafigspath,'Fig4D_top.mat'])
-load( [datafigspath,'Fig4E_top.mat'])
+load( [datafigspath,'Fig5A_top.mat'])
+load( [datafigspath,'Fig5B_top.mat'])
 
 plot_save = 1; % to save or not figure
 
@@ -286,7 +286,7 @@ stat_plot.posclusters = stat_plot.negclusters(end);% just to copy the structure 
 stat_plot.maskforplot = stat_plot.stat.*(stat_plot.negclusterslabelmat==1);% Note: for visualisation, mask out other clusters
 
 
-fig_savename = 'Fig4D_top';
+fig_savename = 'Fig5A_top';
 for fig=11
 sizefig1 = [0.2,0.2,0.4,0.4];
 fontaxis = 24;line_width = 2;
@@ -338,7 +338,7 @@ stat_plot = stat_Explr;
 stat_plot.posclusters = stat_plot.negclusters(end);% just to copy the structure so fieldtrip doesn't throw an error for plotting
 stat_plot.maskforplot = stat_plot.stat.*(stat_plot.negclusterslabelmat==1);% Note: for visualisation, mask out other clusters
 
-fig_savename = 'Fig4E_top';
+fig_savename = 'Fig5B_top';
 for fig=11
 sizefig1 = [0.2,0.2,0.4,0.4];
 fontaxis = 24;line_width = 2;
