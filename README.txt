@@ -48,18 +48,20 @@ The following codes can load the saved outputs from the corresponding analyses a
 -- Fig4A: Beh\Beh_Exp4.m
 -- Fig4B: Gaze\GazeAnalysis_Exp4.m
 -- Fig4C: Saccades\SaccadesAnalysis_Exp4.m
--- Fig4D_left & Fig4E_left: TFR\TFR_Exp4.m
--- Fig4D_right & Fig4E_right: TFR\TFR_Exp4.m
--- Fig4D_top & Fig4E_top: Source\Source_Exp4.m
 
 ----------------------------------------- Figure 5 ---------------------------------------------
--- Fig5: AlphaBeta\AlphaBeta_Saccade_Exp1.m
+-- Fig5A_left & Fig5B_left: TFR\TFR_Exp4.m
+-- Fig5A_right & Fig5B_right: TFR\TFR_Exp4.m
+-- Fig5A_top & Fig5B_top: Source\Source_Exp4.m
 
 ----------------------------------------- Figure 6 ---------------------------------------------
--- Fig6A: AlphaBeta\AlphaBeta_AfterSaccade_Exp1.m
--- Fig6B: AlphaBeta\AlphaBeta_AfterSaccade_Exp2.m
--- Fig6C: AlphaBeta\AlphaBeta_AfterSaccade_Exp3.m
--- Fig6D: AlphaBeta\AlphaBeta_AfterSaccade_Exp4.m
+-- Fig6: AlphaBeta\AlphaBeta_Saccade_Exp1.m
+
+----------------------------------------- Figure 7 ---------------------------------------------
+-- Fig7A: AlphaBeta\AlphaBeta_AfterSaccade_Exp1.m
+-- Fig7B: AlphaBeta\AlphaBeta_AfterSaccade_Exp2.m
+-- Fig7C: AlphaBeta\AlphaBeta_AfterSaccade_Exp3.m
+-- Fig7D: AlphaBeta\AlphaBeta_AfterSaccade_Exp4.m
 
 ----------------------------------- Supplementary Figure 1 -------------------------------------
 -- SuppleFig1: Saccades\Saccade_metrics.m
