@@ -101,7 +101,7 @@ for s = 1:34
     % 
     trl_info = Eye_trlinfo(Eye_trlinfo(:,9)==1,1);
     Sac_trials.trialinfo = Sac_trials.trialinfo(ismember(Sac_trials.trialinfo(:,1),trl_info),:);
-    
+    Sac_trials.trialinfo = Sac_trials.trialinfo(Sac_trials.trialinfo(:,6)>1.3*1000,:);
     
     %% Amplitdue
     alltrl = Sac_trials.trialinfo;
