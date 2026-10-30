@@ -76,7 +76,7 @@ for s = 1:4
         case {3,4}
             eye_Hz = 1000;
     end
-
+    Sac_trials.trialinfo = Sac_trials.trialinfo(Sac_trials.trialinfo(:,6)>1.3*eye_Hz,:);
      %% Amplitdue
     alltrl = Sac_trials.trialinfo;
     
